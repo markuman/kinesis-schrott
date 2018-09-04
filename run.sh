@@ -21,7 +21,7 @@ index 6a858c2..90e7d36 100644
 +        </resource>
 +      </resources>
        <outputDirectory>target/classes</outputDirectory>
-       <finalName>${project.artifactId}-${project.version}</finalName>
+       <finalName>\${project.artifactId}-\${project.version}</finalName>
        <sourceDirectory>src</sourceDirectory>
 @@ -226,7 +231,18 @@
              </execution>
@@ -49,11 +49,12 @@ index 6a858c2..90e7d36 100644
 
 git apply pom.patch
 
+
 mkdir resources
 cp src/com/amazon/kinesis/streaming/agent/custom.log4j.xml resources
 
-
 mvn assembly:assembly -DdescriptorId=jar-with-dependencies
+
 
 cd target
 
