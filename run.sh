@@ -50,12 +50,13 @@ index 6a858c2..90e7d36 100644
 git apply pom.patch
 
 
-mkdir resources
-cp src/com/amazon/kinesis/streaming/agent/custom.log4j.xml resources
+mkdir -p resources/com/amazon/kinesis/streaming/agent/
+cp src/com/amazon/kinesis/streaming/agent/custom.log4j.xml resources/com/amazon/kinesis/streaming/agent/
+cp src/com/amazon/kinesis/streaming/agent/versionInfo.properties resources/com/amazon/kinesis/streaming/agent/
 
 mvn assembly:assembly -DdescriptorId=jar-with-dependencies
 
 
 cd target
 
-#java -jar amazon-kinesis-agent-1.1-jar-with-dependencies.jar -L DEBUG -l /tmp/kinesis.log
+java -jar amazon-kinesis-agent-1.1-jar-with-dependencies.jar -c /mnt/agent.json -L DEBUG -l /tmp/kinesis.log
